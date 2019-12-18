@@ -1,24 +1,23 @@
 # UtilsLib
 This is simple library to make daily things easy in android.
 
-### How to dowload 
+### How to download 
 
 Add this in your Top-Level Gradle
 ```
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+allprojects {
+    repositories {
+    ...
+        maven { url 'https://jitpack.io' }
 	}
-
+}
 ```
 
 Add this in your App Gradle
 ```
-	dependencies {
-	        implementation 'com.github.iRahulGaur:UtilsLib:0.1'
-	}
+dependencies {
+    implementation 'com.github.iRahulGaur:UtilsLib:0.1'
+}
 
 ```
 
@@ -41,9 +40,9 @@ Utils.setIntent(Activity.this, Activity.class, "ExtraKey", mBundle);
 
 ### Change Log
 *0.1*
-  * Initial reslease
+  * Initial release
 
-Download this library 
+Download the Library 
 
 [Link to Jitpack.io](https://jitpack.io/#iRahulGaur/UtilsLib/0.1 "Utils Library - Jitpack")
 
