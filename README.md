@@ -25,7 +25,7 @@ dependencies {
 ### How to use
 
 1. using Intents
-```
+```javascript
 // simple intent from 1 class to another
 Utils.setIntent(Activity.this, Activity.class);
 
