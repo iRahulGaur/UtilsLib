@@ -18,7 +18,6 @@ Add this in your App Gradle
 dependencies {
     implementation 'com.github.iRahulGaur:UtilsLib:0.1'
 }
-
 ```
 
 ### How to use
@@ -35,7 +34,6 @@ Utils.setIntentNoBackLog(Activity.this, Activity.class);
 Bundle mBundle = new Bundle();
 mBundle.putString("key","data"); // or add anything you want
 Utils.setIntent(Activity.this, Activity.class, "ExtraKey", mBundle);
-
 ```
 
 ### Change Log
@@ -46,7 +44,7 @@ Download the Library
 
 [Link to Jitpack.io](https://jitpack.io/#iRahulGaur/UtilsLib/0.1 "Utils Library - Jitpack")
 
-Using Library (Arthur's Image Cropper Library)[https://github.com/ArthurHub/Android-Image-Cropper] 
+Using Library [Arthur's Image Cropper Library](https://github.com/ArthurHub/Android-Image-Cropper )
 
 ### License
 will update soon
