@@ -47,4 +47,4 @@ Download the Library
 Using Library [Arthur's Image Cropper Library](https://github.com/ArthurHub/Android-Image-Cropper )
 
 ### License
-will update soon
+[Apache 2.0](LICENSE)
