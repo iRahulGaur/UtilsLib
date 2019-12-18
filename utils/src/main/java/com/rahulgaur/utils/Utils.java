@@ -1,6 +1,7 @@
 package com.rahulgaur.utils;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +11,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -296,6 +300,21 @@ public class Utils {
 
     public static void showLog(String TAG, String message, String exception) {
         Log.e(TAG, "showLog: " + message + " " + exception);
+    }
+
+    // -------------------------- ImagePicker --------------------------------------------- //
+
+    public static void imagePicker(Activity container, int x, int y) {
+        CropImage.activity()
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setAspectRatio(x, y)
+                .start(container);
+    }
+
+    public static void imagePicker(Activity container) {
+        CropImage.activity()
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .start(container);
     }
 
     // ---------------------------- Shared Preferences ------------------------------------ //
