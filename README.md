@@ -29,7 +29,6 @@ dependencies {
     3. ImagePicker
     4. SharedPreferences
     5. AES Encryption
-    6. Progress Dialog
 
 ### How to use
 
@@ -110,14 +109,6 @@ String encryptedMessage = Utils.AESEncryptionString(message);
 //Decrypt String
 String decryptedMessage = Utils.AESDecryptionString(encryptedMessage);
 ```
-6. Progress Dialog
-```javascript
-//showing progress dialog
-Utils.showProgressDialog("message", Activity.this);
-
-//Dismissing progress dialog
-Utils.dismissDialog();
-```
 
 ### Change Log
 *0.1*
@@ -126,6 +117,8 @@ Utils.dismissDialog();
 *0.2*
   * Added Progress Dialog
   * Updated ReadMe
+*0.21*
+  * Removed Progress
 
 Download the Library [Link to Jitpack.io](https://jitpack.io/#iRahulGaur/UtilsLib/0.1 "Utils Library - Jitpack")
 
