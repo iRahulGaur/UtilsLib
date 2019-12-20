@@ -33,7 +33,7 @@ dependencies {
 
 ### How to use
 
-1. using Intents
+1. Intents
 ```javascript
 // simple intent from 1 class to another
 Utils.setIntent(Activity.this, Activity.class);
@@ -52,7 +52,7 @@ Utils.setHomeActivityClass(MainActivity.class);
 Utils.sendToMain(this);
 ```
 
-2. Showing Toast
+2. Toast
 ```javascript
 int length = 0; // 0 for Short 1 for Long
 Utils.showMessage(this, "message", length);
@@ -127,9 +127,7 @@ Utils.dismissDialog();
   * Added Progress Dialog
   * Updated ReadMe
 
-Download the Library 
-
-[Link to Jitpack.io](https://jitpack.io/#iRahulGaur/UtilsLib/0.1 "Utils Library - Jitpack")
+Download the Library [Link to Jitpack.io](https://jitpack.io/#iRahulGaur/UtilsLib/0.1 "Utils Library - Jitpack")
 
 Using Library [Arthur's Image Cropper Library](https://github.com/ArthurHub/Android-Image-Cropper )
 
