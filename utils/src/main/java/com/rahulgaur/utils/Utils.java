@@ -2,12 +2,18 @@ package com.rahulgaur.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaCodec;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -144,6 +150,10 @@ public class Utils {
         }
 
         return sb.toString();
+    }
+
+    public static void setSecretKey(String key) {
+        Utils.SecretKeyString = key;
     }
 
     private static void setKey() {
@@ -348,11 +358,6 @@ public class Utils {
         }
     }
 
-    public static void clearPreferences() {
-        editor.clear();
-        editor.apply();
-    }
-
     public static void saveInt(String key, Integer trainerId) {
         editor.putInt(key, trainerId);
         editor.apply();
@@ -362,7 +367,46 @@ public class Utils {
         return sharedPreferences.getInt(key, 0);
     }
 
+    public static void clearPreferences() {
+        editor.clear();
+        editor.apply();
+    }
+
     public static void setSharedPreferenceFileName(String SHARED_PREFERENCE_FILE_NAME) {
         Utils.SHARED_PREFERENCE_FILE_NAME = SHARED_PREFERENCE_FILE_NAME;
     }
+
+    //------------------------ Progress Bar ------------------------------------------------//
+    private static AlertDialog aDProgress;
+
+    public static void showProgressDialog(String progress, Context context) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        View view = LayoutInflater.from(context).inflate(R.layout.pop_up_custom_progress, null);
+        builder.setCancelable(false);
+        builder.setView(view);
+
+        TextView tvProgress = view.findViewById(R.id.tvProgress);
+        tvProgress.setText(progress);
+
+        aDProgress = builder.create();
+        aDProgress.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        aDProgress.setCanceledOnTouchOutside(false);
+        aDProgress.setCancelable(false);
+        aDProgress.show();
+    }
+
+    public static void dismissDialog() {
+        if (aDProgress != null) {
+            try {
+                aDProgress.dismiss();
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e("ProgressManager", "dismissDialog: exception with progressbar ");
+            }
+        }
+    }
+
+    //-----------------------------------------------------------------------------------------//
 }
