@@ -3,12 +3,9 @@ package com.rahulgaur.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -20,11 +17,8 @@ import com.theartofdev.edmodo.cropper.CropImageView;
  */
 public class Utils {
 
-    private static SharedPreferences.Editor editor;
-    private static SharedPreferences sharedPreferences;
     private String SHARED_PREFERENCE_FILE_NAME;
-    private static Class homeActivity;
-
+    private Class homeActivity;
     private ProgressManager progressManager;
     private PreferenceManager preferenceManager;
     private FileEncryption fileEncryption;
@@ -53,19 +47,19 @@ public class Utils {
 
     //*************************************Intents*****************************************//
 
-    public void setIntent(@NonNull Context context, Class destination) {
+    public void setIntent(Context context, Class destination) {
         Intent intent = new Intent(context, destination);
         context.startActivity(intent);
     }
 
-    public void setIntentNoBackLog(@NonNull Context context, Class destination) {
+    public void setIntentNoBackLog(Context context, Class destination) {
         Intent intent = new Intent(context, destination);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(intent);
         ((Activity) context).finish();
     }
 
-    public void setIntentExtra(@NonNull Context context, Class destination, String key, Bundle data) {
+    public void setIntentExtra(Context context, Class destination, String key, Bundle data) {
         Intent intent = new Intent(context, destination);
         intent.putExtra(key, data);
         context.startActivity(intent);
@@ -76,7 +70,7 @@ public class Utils {
     }
 
     public void setHomeActivityClass(Class homeActivity) {
-        Utils.homeActivity = homeActivity;
+        this.homeActivity = homeActivity;
     }
 
     // --------------------------- Logs and Toasts ------------------------------------------ //
@@ -131,5 +125,7 @@ public class Utils {
         return progressManager;
     }
 
+
+    //https://medium.com/@yegor_zatsepin/simple-way-to-publish-your-android-library-to-jcenter-d1e145bacf13
     //-----------------------------------------------------------------------------------------//
 }
