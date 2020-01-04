@@ -19,7 +19,7 @@ allprojects {
 Add this in your App Gradle
 ```
 dependencies {
-    implementation 'com.github.irahulgaur:utilslib:0.1'
+    implementation 'com.github.iRahulGaur:UtilsLib:v0.2.2'
 }
 ```
 
