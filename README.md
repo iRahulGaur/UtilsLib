@@ -127,7 +127,7 @@ String decryptedMessage = DataEncryption.AESDecryptionString(encryptedMessage);
 *0.21*
   * Removed Progress
 
-Download the Library [Link to Jitpack.io](https://jitpack.io/#iRahulGaur/UtilsLib/0.1 "Utils Library - Jitpack")
+Download the Library [Link to Jitpack.io](https://jitpack.io/#iRahulGaur/UtilsLib "Utils Library - Jitpack")
 
 Using Library [Arthur's Image Cropper Library](https://github.com/ArthurHub/Android-Image-Cropper )
 
