@@ -141,7 +141,7 @@ public class Utils {
 
 
     //check connectivity
-    public static boolean isNetworkConnected(Context context) {
+    public static boolean isNetworkConnected(@NonNull Context context) {
 
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -183,6 +183,19 @@ public class Utils {
         builder.setCancelable(false);
         builder.setTitle("No Internet");
         builder.setMessage("No Internet Available, Please try again");
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+    }
+    public static void showAlertConnectionError(@NonNull Context context, String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setCancelable(false);
+        builder.setTitle(title);
+        builder.setMessage(message);
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
