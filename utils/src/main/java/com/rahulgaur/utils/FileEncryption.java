@@ -27,17 +27,17 @@ public class FileEncryption {
      *
      * */
 
-    public void encrypt(String key, File inputFile, File outputFile)
+    public static void encrypt(String key, File inputFile, File outputFile)
             throws MediaCodec.CryptoException {
         doCrypto(Cipher.ENCRYPT_MODE, key, inputFile, outputFile);
     }
 
-    public void decrypt(String key, File inputFile, File outputFile)
+    public static void decrypt(String key, File inputFile, File outputFile)
             throws MediaCodec.CryptoException {
         doCrypto(Cipher.DECRYPT_MODE, key, inputFile, outputFile);
     }
 
-    private void doCrypto(int cipherMode, String key, File inputFile,
+    private static void doCrypto(int cipherMode, String key, File inputFile,
                                  File outputFile) throws MediaCodec.CryptoException {
         try {
             String FILE_ALGORITHM = "AES";

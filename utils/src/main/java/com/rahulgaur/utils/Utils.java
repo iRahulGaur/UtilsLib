@@ -25,31 +25,9 @@ import com.theartofdev.edmodo.cropper.CropImageView;
  * Github: github.com/iRahulGaur
  */
 public class Utils {
-
-    private static String SHARED_PREFERENCE_FILE_NAME;
-    private static ProgressManager progressManager;
-    private static PreferenceManager preferenceManager;
-    private static FileEncryption fileEncryption;
-    private static DataEncryption dataEncryption;
     private static final String TAG = "Utils";
 
     public static Class homeActivity;
-
-    //------------------------- Encryption of Data ----------------------------------------------//
-
-    public static DataEncryption encryptData(String secretKeyString) {
-        if (dataEncryption == null)
-            dataEncryption = new DataEncryption(secretKeyString);
-        return dataEncryption;
-    }
-
-    //------------------------------------Encrypt file------------------------------------------//
-
-    public static FileEncryption encryptFile() {
-        if (fileEncryption == null)
-            fileEncryption = new FileEncryption();
-        return fileEncryption;
-    }
 
     //*************************************Intents*****************************************//
 
@@ -75,10 +53,6 @@ public class Utils {
         setIntentNoBackLog(context, homeActivity);
     }
 
-    public static void sendToMain(Context context, Class homeActivity) {
-        setIntentNoBackLog(context, homeActivity);
-    }
-
     // --------------------------- Logs and Toasts ------------------------------------------ //
     public static void showMessage(Context context, String message, int toast_length) {
         int length;
@@ -95,11 +69,25 @@ public class Utils {
     public static void showLogE(String TAG, String message, String exception) {
         Log.e(TAG, "showLog: " + message + " " + exception);
     }
+
+    public static void showLogE(String TAG, String message, Exception exception) {
+        Log.e(TAG, "showLog: " + message + " " + exception);
+    }
+
     public static void showLogE(String TAG, String message) {
         Log.e(TAG, "showLog: " + message);
     }
+
+    public static void showLogE(String TAG, Exception exception) {
+        Log.e(TAG, "showLog: " + exception);
+    }
+
     public static void showLogE(String message) {
         Log.e(TAG, "showLog: " + message);
+    }
+
+    public static void showLogE(Exception exception) {
+        Log.e(TAG, "showLog: " + exception);
     }
 
     // -------------------------- ImagePicker --------------------------------------------- //
@@ -116,29 +104,6 @@ public class Utils {
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .start(container);
     }
-
-    // ---------------------------- Shared Preferences ------------------------------------ //
-
-    public static PreferenceManager getPreferenceManager(Context context) {
-        if (preferenceManager == null)
-            preferenceManager = new PreferenceManager(context, SHARED_PREFERENCE_FILE_NAME);
-        return preferenceManager;
-    }
-
-    public static PreferenceManager getPreferenceManager(Context context, String SHARED_PREFERENCE_FILE_NAME) {
-        if (preferenceManager == null)
-            preferenceManager = new PreferenceManager(context, SHARED_PREFERENCE_FILE_NAME);
-        return preferenceManager;
-    }
-
-    //------------------------ Progress Bar ------------------------------------------------//
-
-    public static ProgressManager getProgressManager(Context context) {
-        if (progressManager == null)
-            progressManager = new ProgressManager(context);
-        return progressManager;
-    }
-
 
     //check connectivity
     public static boolean isNetworkConnected(@NonNull Context context) {
@@ -191,6 +156,7 @@ public class Utils {
         });
         builder.show();
     }
+
     public static void showAlertConnectionError(@NonNull Context context, String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setCancelable(false);
@@ -205,6 +171,5 @@ public class Utils {
         builder.show();
     }
 
-    //https://medium.com/@yegor_zatsepin/simple-way-to-publish-your-android-library-to-jcenter-d1e145bacf13
     //-----------------------------------------------------------------------------------------//
 }

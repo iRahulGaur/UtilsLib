@@ -25,11 +25,11 @@ import static android.content.ContentValues.TAG;
 
 public class DataEncryption {
 
-    private final String KEY_ALGORITHM = "RSA";
-    private SecretKeySpec secretKey;
-    private final String SecretKeyString;
-    private final String AES_PADDING = "AES/ECB/PKCS5PADDING";
-    private final String RSA__PADDING = "RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING";
+    private static final String KEY_ALGORITHM = "RSA";
+    private static SecretKeySpec secretKey;
+    private static String SecretKeyString;
+    private final static String AES_PADDING = "AES/ECB/PKCS5PADDING";
+    private final static String RSA__PADDING = "RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING";
 
     /*
     * Padding sizes
@@ -53,11 +53,7 @@ public class DataEncryption {
     * AES padding = AES/ECB/PKCS5PADDING
     * */
 
-    DataEncryption(String secretKeyString) {
-        SecretKeyString = secretKeyString;
-    }
-
-    public KeyPair generateKeyPair() throws NoSuchAlgorithmException {
+    public static KeyPair generateKeyPair() throws NoSuchAlgorithmException {
 
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance(KEY_ALGORITHM);
 
@@ -66,7 +62,7 @@ public class DataEncryption {
         return keyGen.generateKeyPair();
     }
 
-    public byte[] encrypt(String plainText, byte[] publicKeyEncoded) throws Exception {
+    public static byte[] encrypt(String plainText, byte[] publicKeyEncoded) throws Exception {
         //Get Cipher Instance RSA With ECB Mode and OAEPWithSHA3-256AndMGF1Padding Padding
         Cipher cipher = Cipher.getInstance(RSA__PADDING);
 
@@ -81,7 +77,7 @@ public class DataEncryption {
         return cipher.doFinal(plainText.getBytes());
     }
 
-    public String decrypt(byte[] cipherTextArray, PrivateKey privateKey) throws Exception {
+    public static String decrypt(byte[] cipherTextArray, PrivateKey privateKey) throws Exception {
         //Get Cipher Instance RSA With ECB Mode and OAEPWithSHA3-256AndMGF1Padding Padding
         Cipher cipher = Cipher.getInstance(RSA__PADDING);
 
@@ -95,7 +91,7 @@ public class DataEncryption {
     }
 
     // function to generate a random string of length n
-    public String getAlphaNumericString(int n) {
+    public static String getAlphaNumericString(int n) {
 
         // chose a Character random from this String
         String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -122,7 +118,7 @@ public class DataEncryption {
         return sb.toString();
     }
 
-    private void setKey() {
+    private static void setKey() {
         MessageDigest sha;
         try {
             byte[] key = SecretKeyString.getBytes(StandardCharsets.UTF_8);
@@ -138,7 +134,7 @@ public class DataEncryption {
 
     //for encryption
     @SuppressLint("GetInstance")
-    public String AESEncryptionString(String stringData) {
+    public static String AESEncryptionString(String stringData) {
         Cipher cipher = null;
         try {
             cipher = Cipher.getInstance(AES_PADDING);
@@ -165,7 +161,7 @@ public class DataEncryption {
 
     //DecryptString
     @SuppressLint("GetInstance")
-    public String AESDecryptionString(String stringData) {
+    public static String AESDecryptionString(String stringData) {
         Cipher decipher = null;
         byte[] encryptedString = stringData.getBytes(StandardCharsets.ISO_8859_1);
         String returnData = stringData;
@@ -187,4 +183,7 @@ public class DataEncryption {
         return returnData;
     }
 
+    public static void setSecretKeyString(String secretKeyString) {
+        SecretKeyString = secretKeyString;
+    }
 }

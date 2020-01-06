@@ -6,37 +6,30 @@ import android.content.SharedPreferences.Editor;
 
 public class PreferenceManager {
 
-    private Context context;
-    private final String SHARED_PREFERENCE_FILE_NAME;
-    private SharedPreferences sharedPreferences;
-    private Editor editor;
+    private static SharedPreferences sharedPreferences;
+    private static Editor editor;
 
-    PreferenceManager(Context context, String shared_preference_file_name) {
-        this.context = context;
-        SHARED_PREFERENCE_FILE_NAME = shared_preference_file_name;
-    }
-
-    public void setPreferenceManager() {
+    public static void setPreferenceManager(Context context, String SHARED_PREFERENCE_FILE_NAME) {
         sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         editor.apply();
     }
 
-    public void saveString(String key, String value) {
+    public static void saveString(String key, String value) {
         editor.putString(key, value);
         editor.apply();
     }
 
-    public String getString(String key) {
+    public static String getString(String key) {
         return sharedPreferences.getString(key, "");
     }
 
-    public void saveBoolean(String key, boolean value) {
+    public  static void saveBoolean(String key, boolean value) {
         editor.putBoolean(key, value);
         editor.apply();
     }
 
-    public boolean getBoolean(String key) {
+    public static boolean getBoolean(String key) {
         try {
             return sharedPreferences.getBoolean(key, false);
         } catch (Exception e) {
@@ -45,16 +38,16 @@ public class PreferenceManager {
         }
     }
 
-    public void saveInt(String key, Integer trainerId) {
+    public static void saveInt(String key, Integer trainerId) {
         editor.putInt(key, trainerId);
         editor.apply();
     }
 
-    public int getInt(String key) {
+    public static int getInt(String key) {
         return sharedPreferences.getInt(key, 0);
     }
 
-    public void clearPreferences() {
+    public static void clearPreferences() {
         editor.clear();
         editor.apply();
     }

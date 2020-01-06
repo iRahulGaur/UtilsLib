@@ -13,13 +13,8 @@ import java.util.Objects;
 
 public class ProgressManager {
     private static AlertDialog aDProgress;
-    private Context context;
 
-    ProgressManager(Context context) {
-        this.context = context;
-    }
-
-    public void showProgressDialog(String progress) {
+    public static void showProgressDialog(Context context, String progress) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
@@ -37,7 +32,7 @@ public class ProgressManager {
         aDProgress.show();
     }
 
-    public void dismissDialog() {
+    public static void dismissDialog() {
         if (aDProgress != null) {
             try {
                 aDProgress.dismiss();

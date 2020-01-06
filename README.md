@@ -35,26 +35,31 @@ dependencies {
 1. Intents
 ```javascript
 // simple intent from 1 class to another
-Utils.setIntent(Activity.this, Activity.class);
+Utils.setIntent(ActivityFrom.this, ActivityTo.class);
 
 // intent with no back logs
-Utils.setIntentNoBackLog(Activity.this, Activity.class);
+Utils.setIntentNoBackLog(ActivityFrom.this, ActivityTo.class);
 
 // intent with bundle data
 Bundle mBundle = new Bundle();
 mBundle.putString("key","data"); // or add anything you want
-Utils.setIntent(Activity.this, Activity.class, "ExtraKey", mBundle);
+Utils.setIntent(ActivityFrom.this, ActivityTo.class, "ExtraKey", mBundle);
 
 // intent to MainActivity or any LandingPage with No back logs
 // set your LandingPage 1 time
-Utils.setHomeActivityClass(MainActivity.class);
-Utils.sendToMain(this);
+Utils.homeActivity = MainActivity.class; //set your home/main/landing class here
+Utils.sendToMain(Activity.this); //directly send to pre-set HomeActivity or
 ```
 
-2. Toast
+2. Toast and Logs
 ```javascript
 int length = 0; // 0 for Short 1 for Long
 Utils.showMessage(this, "message", length);
+
+// to show logs in error
+Utils.showLogE("message"); // pass the message
+Utils.showLogE("TAG", "message"); // pass TAG and message
+Utils.showLogE("TAG", "message", "Exception"); // pass TAG and Message and Exception
 ```
 
 3. Image Picker
@@ -70,29 +75,26 @@ Utils.imagePicker(this);
 
 4. Shared Preferences
 ```javascript
-//init sharedPreferences
-Utils.setPreferenceManager(this);
-
-// set SharedPreference Name
-Utils.setSharedPreferenceFileName("name");
+// init shared preferences
+Utils.getPreferenceManager(this, "SharedPreferenceName");
 
 //save String
-Utils.saveString("key", "value");
+Utils.getPreferenceManager(this).saveString("key", "value");
 //get String, default value is ""
-Utils.getString("key");
+Utils.getPreferenceManager(this).getString("key");
 
 //save boolean
-Utils.saveBoolean("key", value);
+Utils.getPreferenceManager(this).saveBoolean("key", value);
 //get boolean, default value is false
-Utils.getBoolean("key");
+Utils.getPreferenceManager(this).getBoolean("key");
 
 //save int
-Utils.saveInt("key", value);
+Utils.getPreferenceManager(this).saveInt("key", value);
 //get int, default value is 0
-Utils.getInt("key");
+Utils.getPreferenceManager(this).getInt("key");
 
 //clear sharedPreferences
-Utils.clearPreferences();
+Utils.getPreferenceManager(this).clearPreferences();
 ```
 5. AES Encryption of Strings
 ```javascript
