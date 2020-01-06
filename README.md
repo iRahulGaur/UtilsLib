@@ -29,7 +29,8 @@ dependencies {
     3. ImagePicker
     4. SharedPreferences
     5. AES Encryption
-
+    6. Network Check
+    
 ### How to use
 
 1. Intents
@@ -116,6 +117,21 @@ String encryptedMessage = DataEncryption.AESEncryptionString(message);
 //Decrypt String
 String decryptedMessage = DataEncryption.AESDecryptionString(encryptedMessage);
 ```
+6. Network Check
+```javascript
+//to check network connectivity you need to add permission in your manifest
+// <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+if (Utils.isNetworkConnected(this)){
+    // network is connected 
+} else {
+    // no internet connection
+    // optional show dialog
+    Utils.showAlertConnectionError(this);
+    // or with title and message
+    Utils.showAlertConnectionError(this, "title", "message");
+}
+```
 
 ### Change Log
 *0.1*
@@ -126,6 +142,10 @@ String decryptedMessage = DataEncryption.AESDecryptionString(encryptedMessage);
   * Updated ReadMe
 *0.21*
   * Removed Progress
+*1.0.0*
+  * Added Logs and NetworkChecker
+*1.0.1*
+  * Fixed some issues
 
 Download the Library [Link to Jitpack.io](https://jitpack.io/#iRahulGaur/UtilsLib "Utils Library - Jitpack")
 
