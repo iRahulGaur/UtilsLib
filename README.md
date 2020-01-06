@@ -140,12 +140,16 @@ if (Utils.isNetworkConnected(this)){
 *0.2*
   * Added Progress Dialog
   * Updated ReadMe
+  
 *0.21*
   * Removed Progress
+  
 *1.0.0*
   * Added Logs and NetworkChecker
+
 *1.0.1*
   * Fixed some issues
+
 
 Download the Library [Link to Jitpack.io](https://jitpack.io/#iRahulGaur/UtilsLib "Utils Library - Jitpack")
 
