@@ -19,7 +19,7 @@ allprojects {
 Add this in your App Gradle
 ```
 dependencies {
-    implementation 'com.github.iRahulGaur:UtilsLib:1.0.0'
+    implementation 'com.github.iRahulGaur:UtilsLib:1.0.1'
 }
 ```
 
@@ -60,6 +60,11 @@ Utils.showMessage(this, "message", length);
 Utils.showLogE("message"); // pass the message
 Utils.showLogE("TAG", "message"); // pass TAG and message
 Utils.showLogE("TAG", "message", "Exception"); // pass TAG and Message and Exception
+   
+Exception exception = new Exception(); // some exception
+Utils.showLogE(exception); // pass Exception
+Utils.showLogE("TAG", "message", exception); // pass TAG and Message and Exception
+Utils.showLogE("TAG", exception); // pass TAG and Exception
 ```
 
 3. Image Picker
@@ -76,40 +81,40 @@ Utils.imagePicker(this);
 4. Shared Preferences
 ```javascript
 // init shared preferences
-Utils.getPreferenceManager(this, "SharedPreferenceName");
+PreferenceManager.setPreferenceManager(this, "sharedPreferenceName");
 
 //save String
-Utils.getPreferenceManager(this).saveString("key", "value");
+PreferenceManager.saveString("key", "value");
 //get String, default value is ""
-Utils.getPreferenceManager(this).getString("key");
+PreferenceManager.getString("key");
 
 //save boolean
-Utils.getPreferenceManager(this).saveBoolean("key", value);
+PreferenceManager.saveBoolean("key", value);
 //get boolean, default value is false
-Utils.getPreferenceManager(this).getBoolean("key");
+PreferenceManager.getBoolean("key");
 
 //save int
-Utils.getPreferenceManager(this).saveInt("key", value);
+PreferenceManager.saveInt("key", value);
 //get int, default value is 0
-Utils.getPreferenceManager(this).getInt("key");
+PreferenceManager.getInt("key");
 
 //clear sharedPreferences
-Utils.getPreferenceManager(this).clearPreferences();
+PreferenceManager.clearPreferences();
 ```
 5. AES Encryption of Strings
 ```javascript
 //set SecreyKey, size should be 16 char
 // to generate a random String user
-Utils.getAlphaNumericString(charLength);
+DataEncryption.setSecretKeyString(DataEncryption.getAlphaNumericString(16));
 //or
-Utils.SecretKeyString = Utils.getAlphaNumericString(16);
+DataEncryption.setSecretKeyString("some secret key");
 
 //Encrypt String
 String message = "Some message";
-String encryptedMessage = Utils.AESEncryptionString(message);
+String encryptedMessage = DataEncryption.AESEncryptionString(message);
 
 //Decrypt String
-String decryptedMessage = Utils.AESDecryptionString(encryptedMessage);
+String decryptedMessage = DataEncryption.AESDecryptionString(encryptedMessage);
 ```
 
 ### Change Log
