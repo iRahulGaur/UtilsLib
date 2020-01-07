@@ -1,7 +1,7 @@
 # UtilsLib
 This is simple library to make daily things easy in android.
 
-![stars](https://img.shields.io/github/stars/iRahulGaur/UtilsLib?style=flat-square) ![forks](https://img.shields.io/github/forks/iRahulGaur/UtilsLib?style=flat-square) ![issues](https://img.shields.io/github/issues/iRahulGaur/UtilsLib?style=flat-square) ![license](https://img.shields.io/github/license/iRahulGaur/UtilsLib?style=flat-square) [![](https://jitpack.io/v/iRahulGaur/UtilsLib.svg)](https://jitpack.io/#iRahulGaur/UtilsLib)
+![stars](https://img.shields.io/github/stars/iRahulGaur/UtilsLib?style=flat-square) ![forks](https://img.shields.io/github/forks/iRahulGaur/UtilsLib?style=flat-square) ![issues](https://img.shields.io/github/issues/iRahulGaur/UtilsLib?style=flat-square) ![license](https://img.shields.io/github/license/iRahulGaur/UtilsLib?style=flat-square) [![](https://jitpack.io/v/iRahulGaur/UtilsLib.svg)](https://jitpack.io/#iRahulGaur/UtilsLib) ![API](https://img.shields.io/badge/Android%20API-v21%2B-blue)
 
 
 ### How to download 
