@@ -19,9 +19,12 @@ allprojects {
 Add this in your App Gradle
 ```
 dependencies {
-    implementation 'com.github.iRahulGaur:UtilsLib:1.0.1'
+    implementation 'com.github.iRahulGaur:UtilsLib:1.x.x'
 }
 ```
+---
+### Open to any contribution
+---
 
 ### Table of Content
     1. Intents
