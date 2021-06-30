@@ -106,22 +106,8 @@ PreferenceManager.getInt("key");
 //clear sharedPreferences
 PreferenceManager.clearPreferences();
 ```
-5. AES Encryption of Strings
-```javascript
-//set SecreyKey, size should be 16 char
-// to generate a random String user
-DataEncryption.setSecretKeyString(DataEncryption.getAlphaNumericString(16));
-//or
-DataEncryption.setSecretKeyString("some secret key");
 
-//Encrypt String
-String message = "Some message";
-String encryptedMessage = DataEncryption.AESEncryptionString(message);
-
-//Decrypt String
-String decryptedMessage = DataEncryption.AESDecryptionString(encryptedMessage);
-```
-6. Network Check
+5. Network Check
 ```javascript
 //to check network connectivity you need to add permission in your manifest
 // <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -153,6 +139,9 @@ if (Utils.isNetworkConnected(this)){
 
 *1.0.1*
   * Fixed some issues
+
+*1.0.2*
+  * Added proper docs, deprecated DataEncryption.class
 
 
 Download the Library [Link to Jitpack.io](https://jitpack.io/#iRahulGaur/UtilsLib "Utils Library - Jitpack")
