@@ -20,23 +20,48 @@ import javax.crypto.spec.SecretKeySpec;
 
 import static android.content.ContentValues.TAG;
 
+/**
+ * Util file for File Encryption
+ */
+@SuppressWarnings("unused")
 public class FileEncryption {
-    /*
-     * encrypt(key, inputFile, encryptedFile);
-     * decrypt(key, encryptedFile, decryptedFile);
-     *
-     * */
 
+    /**
+     * This method will encrypt the given file using a secret key; recommended key size = 16
+     *
+     * @param key        secret key for encrypting the file
+     * @param inputFile  file you want to encrypt
+     * @param outputFile encrypted file
+     * @throws MediaCodec.CryptoException Thrown when a crypto error occurs while queueing a secure input buffer
+     */
     public static void encrypt(String key, File inputFile, File outputFile)
             throws MediaCodec.CryptoException {
         doCrypto(Cipher.ENCRYPT_MODE, key, inputFile, outputFile);
     }
 
+    /**
+     * This method will decrypt the given file using the same secret key; recommended key size = 16
+     *
+     * @param key        secret key for encrypting the file
+     * @param inputFile  file you want to encrypt
+     * @param outputFile encrypted file
+     * @throws MediaCodec.CryptoException Thrown when a crypto error occurs while queueing a secure input buffer
+     */
     public static void decrypt(String key, File inputFile, File outputFile)
             throws MediaCodec.CryptoException {
         doCrypto(Cipher.DECRYPT_MODE, key, inputFile, outputFile);
     }
 
+    /**
+     * This method will decrypt and encrypt the file using secret key
+     *
+     * @param cipherMode cipher mode can be ENCRYPT or DECRYPT
+     * @param key        secret key for encrypting the file
+     * @param inputFile  file you want to encrypt
+     * @param outputFile encrypted file
+     * @throws MediaCodec.CryptoException Thrown when a crypto error occurs while queueing a secure input buffer
+     */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     private static void doCrypto(int cipherMode, String key, File inputFile,
                                  File outputFile) throws MediaCodec.CryptoException {
         try {

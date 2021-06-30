@@ -1,6 +1,5 @@
 package com.rahulgaur.utils;
 
-import android.annotation.SuppressLint;
 import android.util.Log;
 
 import java.nio.charset.StandardCharsets;
@@ -23,6 +22,16 @@ import javax.crypto.spec.SecretKeySpec;
 
 import static android.content.ContentValues.TAG;
 
+/**
+ * This class will help to encrypt string
+ * <p>
+ * Deprecated warning, this class is no longer maintained and this encryption method is not good enough
+ *
+ * if you want me to add encryption utils class, please mail me at rahul.gaur152@gmail.com
+ * or visit Github = https://github.com/iRahulGaur/UtilsLib/issues/new to raise new issue
+ */
+@SuppressWarnings("unused, GetInstance")
+@Deprecated
 public class DataEncryption {
 
     private static final String KEY_ALGORITHM = "RSA";
@@ -53,6 +62,7 @@ public class DataEncryption {
     * AES padding = AES/ECB/PKCS5PADDING
     * */
 
+    @Deprecated
     public static KeyPair generateKeyPair() throws NoSuchAlgorithmException {
 
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance(KEY_ALGORITHM);
@@ -62,6 +72,7 @@ public class DataEncryption {
         return keyGen.generateKeyPair();
     }
 
+    @Deprecated
     public static byte[] encrypt(String plainText, byte[] publicKeyEncoded) throws Exception {
         //Get Cipher Instance RSA With ECB Mode and OAEPWithSHA3-256AndMGF1Padding Padding
         Cipher cipher = Cipher.getInstance(RSA__PADDING);
@@ -77,6 +88,7 @@ public class DataEncryption {
         return cipher.doFinal(plainText.getBytes());
     }
 
+    @Deprecated
     public static String decrypt(byte[] cipherTextArray, PrivateKey privateKey) throws Exception {
         //Get Cipher Instance RSA With ECB Mode and OAEPWithSHA3-256AndMGF1Padding Padding
         Cipher cipher = Cipher.getInstance(RSA__PADDING);
@@ -91,6 +103,7 @@ public class DataEncryption {
     }
 
     // function to generate a random string of length n
+    @Deprecated
     public static String getAlphaNumericString(int n) {
 
         // chose a Character random from this String
@@ -118,6 +131,7 @@ public class DataEncryption {
         return sb.toString();
     }
 
+    @Deprecated
     private static void setKey() {
         MessageDigest sha;
         try {
@@ -133,7 +147,7 @@ public class DataEncryption {
     }
 
     //for encryption
-    @SuppressLint("GetInstance")
+    @Deprecated
     public static String AESEncryptionString(String stringData) {
         Cipher cipher = null;
         try {
@@ -160,7 +174,7 @@ public class DataEncryption {
     }
 
     //DecryptString
-    @SuppressLint("GetInstance")
+    @Deprecated
     public static String AESDecryptionString(String stringData) {
         Cipher decipher = null;
         byte[] encryptedString = stringData.getBytes(StandardCharsets.ISO_8859_1);
@@ -183,6 +197,7 @@ public class DataEncryption {
         return returnData;
     }
 
+    @Deprecated
     public static void setSecretKeyString(String secretKeyString) {
         SecretKeyString = secretKeyString;
     }

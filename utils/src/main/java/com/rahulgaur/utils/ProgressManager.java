@@ -11,10 +11,20 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
+/**
+ * This class will help to show progress dialog
+ */
+@SuppressWarnings("unused")
 public class ProgressManager {
     private static AlertDialog aDProgress;
 
-    public static void showProgressDialog(Context context, String progress) {
+    /**
+     * This method will show the dialog
+     *
+     * @param context         current context/activity
+     * @param progressMessage this text will be shown next to the progress bar
+     */
+    public static void showProgressDialog(Context context, String progressMessage) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
@@ -23,7 +33,7 @@ public class ProgressManager {
         builder.setView(view);
 
         TextView tvProgress = view.findViewById(R.id.tvProgress);
-        tvProgress.setText(progress);
+        tvProgress.setText(progressMessage);
 
         aDProgress = builder.create();
         Objects.requireNonNull(aDProgress.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -32,6 +42,10 @@ public class ProgressManager {
         aDProgress.show();
     }
 
+    /**
+     * This method will dismiss progress dialog,
+     * recommended to add this method in onStop() also
+     */
     public static void dismissDialog() {
         if (aDProgress != null) {
             try {
